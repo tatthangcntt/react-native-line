@@ -73,8 +73,8 @@ public class LineLogin extends ReactContextBaseJavaModule {
             currentPromise = promise;
             Context context = getCurrentActivity().getApplicationContext();
             String channelId = context.getString(R.string.line_channel_id);
-            Intent intent = LineLoginApi.getLoginIntent(context, channelId);
-            getCurrentActivity().startActivityForResult(intent, REQUEST_CODE);
+            // Intent intent = LineLoginApi.getLoginIntent(context, channelId);
+            getCurrentActivity().startActivityForResult(new Intent(), REQUEST_CODE);
         } catch (Exception e) {
             promise.reject(ERROR, e.toString());
         }
@@ -132,7 +132,7 @@ public class LineLogin extends ReactContextBaseJavaModule {
 
     private WritableMap parseAccessToken(LineAccessToken accessToken) {
         WritableMap result = Arguments.createMap();
-        result.putString("accessToken", accessToken.getAccessToken());
+       result.putString("accessToken", "");
         result.putString("expirationDate", Long.toString(accessToken.getExpiresInMillis()));
         return result;
     }
