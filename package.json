@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/xmartlabs/react-native-line.git"
+    "url": "git+https://github.com/tatthangcntt/react-native-line.git"
   },
   "keywords": [
     "LINE",
@@ -18,7 +18,7 @@
   "author": "Xmartlabs SRL",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/xmartlabs/react-native-line/issues"
+    "url": "https://github.com/tatthangcntt/react-native-line/issues"
   },
-  "homepage": "https://github.com/xmartlabs/react-native-line#readme"
+  "homepage": "https://github.com/tatthangcntt/react-native-line#readme"
 }
