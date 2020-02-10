@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
+
 import com.facebook.react.bridge.ActivityEventListener;
 import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.BaseActivityEventListener;
@@ -73,8 +74,8 @@ public class LineLogin extends ReactContextBaseJavaModule {
             currentPromise = promise;
             Context context = getCurrentActivity().getApplicationContext();
             String channelId = context.getString(R.string.line_channel_id);
-            // Intent intent = LineLoginApi.getLoginIntent(context, channelId);
-            getCurrentActivity().startActivityForResult(new Intent(), REQUEST_CODE);
+            Intent intent = LineLoginApi.getLoginIntent(context, channelId);
+            getCurrentActivity().startActivityForResult(intent, REQUEST_CODE);
         } catch (Exception e) {
             promise.reject(ERROR, e.toString());
         }
@@ -132,7 +133,7 @@ public class LineLogin extends ReactContextBaseJavaModule {
 
     private WritableMap parseAccessToken(LineAccessToken accessToken) {
         WritableMap result = Arguments.createMap();
-       result.putString("accessToken", "");
+        result.putString("accessToken", accessToken.getAccessToken());
         result.putString("expirationDate", Long.toString(accessToken.getExpiresInMillis()));
         return result;
     }
